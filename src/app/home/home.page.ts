@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { TtsService } from '../services/tts.service';
+
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,13 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private _stts:TtsService) {}
 
+  hablar(esp:string){
+    this._stts.discurso(esp);
+  }
+
+  speak(eng:string){
+    this._stts.speech(eng);
+  }
 }
